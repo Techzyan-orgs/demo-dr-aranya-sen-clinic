@@ -1,0 +1,87 @@
+import { NextResponse } from 'next/server';
+import { Chamber } from '@/types/chamber';
+
+const INITIAL_CHAMBERS: Chamber[] = [
+  {
+    id: 'apollo-gleneagles',
+    clinicName: 'Apollo Gleneagles Hospital',
+    location: 'EM Bypass, Sector III, Salt Lake',
+    address: '58 Canal Circular Road, Kolkata - 700054',
+    days: ['Monday', 'Wednesday', 'Friday'],
+    timing: '05:00 PM - 08:30 PM',
+    status: 'active',
+    statusText: 'Consultation Ongoing • Chamber 2A',
+    currentQueue: 7,
+    totalTokensToday: 22,
+    contactNumber: '+91 33 2320 3040',
+    mapQuery: 'Apollo Gleneagles Hospitals Kolkata',
+    chamberRoom: 'OPD Chamber 2A (1st Floor Neuro Block)',
+    floor: '1st Floor',
+  },
+  {
+    id: 'sen-brain-spine',
+    clinicName: 'Sen Brain & Spine Center',
+    location: 'Prince Anwar Shah Road, South Kolkata',
+    address: '142/1 Prince Anwar Shah Road, Opp. South City Mall, Kolkata - 700068',
+    days: ['Tuesday', 'Thursday', 'Saturday'],
+    timing: '06:00 PM - 09:30 PM',
+    status: 'starting_soon',
+    statusText: 'Starts at 06:00 PM • Token Desk Open',
+    currentQueue: 3,
+    totalTokensToday: 18,
+    contactNumber: '+91 98300 12345',
+    mapQuery: 'South City Mall Prince Anwar Shah Road Kolkata',
+    chamberRoom: 'Suite 101, Ground Floor',
+    floor: 'Ground Floor',
+  },
+  {
+    id: 'amri-neuro',
+    clinicName: 'AMRI Hospitals (Dhakuria)',
+    location: 'Dhakuria / Gariahat Connector',
+    address: 'P-4 & 5, CIT Scheme LXXII, Block-A, Gariahat, Kolkata - 700029',
+    days: ['Saturday (Morning)', 'Sunday (Special OPD)'],
+    timing: '10:30 AM - 01:30 PM',
+    status: 'closed',
+    statusText: 'Closed • Resumes Saturday 10:30 AM',
+    currentQueue: 0,
+    totalTokensToday: 15,
+    contactNumber: '+91 33 6680 0000',
+    mapQuery: 'AMRI Hospital Dhakuria Kolkata',
+    chamberRoom: 'Neuro Speciality Wing 3B',
+    floor: '3rd Floor',
+  },
+  {
+    id: 'tele-neurology',
+    clinicName: 'Tele-Neurology Virtual Clinic',
+    location: 'Secure HD Video Consult (Worldwide)',
+    address: 'Encrypted Digital Neuro Consultation Room',
+    days: ['Daily (Monday - Saturday)'],
+    timing: '02:00 PM - 04:30 PM',
+    status: 'active',
+    statusText: 'Digital Queue Open • 3 Slots Left',
+    currentQueue: 2,
+    totalTokensToday: 8,
+    contactNumber: '+91 98300 12345',
+    chamberRoom: 'WebRTC Secure Video Portal',
+    floor: 'Virtual',
+  },
+];
+
+export async function GET() {
+  return NextResponse.json({
+    timestamp: new Date().toISOString(),
+    doctor: {
+      name: 'Dr. Aranya Sen',
+      degrees: 'DM (Neurology), MD (Medicine), MBBS',
+      designation: 'Senior Consultant Neurologist & Stroke Specialist',
+      experienceYears: 14,
+      registrationNo: 'WBMC-62419',
+      affiliations: [
+        'AIIMS (New Delhi) Alum',
+        'Head of Stroke & Neurovascular Unit',
+        'Indian Academy of Neurology (IAN) Fellow',
+      ],
+    },
+    chambers: INITIAL_CHAMBERS,
+  });
+}

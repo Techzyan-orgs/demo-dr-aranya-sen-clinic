@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Aranya Sen - Neurologist Triage & OPD Portal",
+  "description": "Consultant Neurologist appointment triage, live OPD chamber timings, emergency red-flag screening, and instant WhatsApp booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neuro-void: #0B132B;
+  --color-neuro-slate: #1C2541;
+  --color-neuro-axon: #3A506B;
+  --color-neuro-teal: #0D9488;
+  --color-neuro-teal-hover: #0B7A6E;
+  --color-neuro-cyan: #5BC0BE;
+  --color-neuro-canvas: #F8FAFC;
+  --color-neuro-card: #FFFFFF;
+
+  --color-triage-emergency: #EF4444;
+  --color-triage-urgent: #F59E0B;
+  --color-triage-routine: #10B981;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --shadow-neural: 0 4px 20px -2px rgba(13, 148, 136, 0.12);
+  --shadow-neural-card: 0 2px 14px -2px rgba(11, 19, 43, 0.06);
+  --shadow-neural-lg: 0 10px 30px -4px rgba(11, 19, 43, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-neuro-canvas);
+    color: var(--color-neuro-void);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
