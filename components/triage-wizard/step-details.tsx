@@ -21,6 +21,7 @@ import {
 import { PatientFormData } from '@/types/triage';
 import { SYMPTOM_CATEGORIES, evaluateTriage } from '@/lib/triage-rules';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
+import { CHAMBER_CONFIGS } from '@/lib/chamber-schedule';
 
 interface StepDetailsProps {
   formData: PatientFormData;
@@ -60,14 +61,17 @@ export function StepDetails({ formData, updateFormData, onPrev }: StepDetailsPro
     setErrorMsg('');
     setIsSubmitted(true);
 
+    const matchedConfig = CHAMBER_CONFIGS.find((c) => c.id === formData.chamberId);
     const chamberName =
       formData.mode === 'tele'
         ? 'Tele-Neurology Digital OPD'
+        : matchedConfig
+        ? `${matchedConfig.clinicName} (${matchedConfig.chamberRoomShort})`
         : formData.chamberId === 'apollo-gleneagles'
         ? 'Apollo Gleneagles Hospital (Chamber 2A)'
         : formData.chamberId === 'sen-brain-spine'
-        ? 'Sen Brain & Spine Center (South City)'
-        : 'AMRI Hospitals (Dhakuria Neuro Wing)';
+        ? 'Sri Aurobindo Seva Kendra (Suite 101)'
+        : 'Manipal Hospital (Dhakuria Neuro Wing)';
 
     const link = generateWhatsAppLink({
       patientName: formData.fullName,

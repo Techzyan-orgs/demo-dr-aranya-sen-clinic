@@ -65,7 +65,7 @@ export function StepSlot({ formData, updateFormData, onNext, onPrev }: StepSlotP
     chambers.find((c) => c.id === formData.chamberId) || chambers[0];
 
   // Generate slot options based on mode & chamber
-  const physicalSlots = [
+  const defaultPhysicalSlots = [
     { time: '05:00 PM', status: 'available', token: 'Token #04' },
     { time: '05:30 PM', status: 'available', token: 'Token #06' },
     { time: '06:00 PM', status: 'available', token: 'Token #09' },
@@ -83,7 +83,16 @@ export function StepSlot({ formData, updateFormData, onNext, onPrev }: StepSlotP
     { time: '04:00 PM', status: 'available', token: 'Tele-Slot #5' },
   ];
 
-  const slots = formData.mode === 'tele' ? teleSlots : physicalSlots;
+  const chamberPhysicalSlots =
+    selectedChamber?.slots && selectedChamber.slots.length > 0
+      ? selectedChamber.slots.map((s, idx) => ({
+          time: s.time,
+          status: idx % 3 === 2 ? 'filling_fast' : 'available',
+          token: s.token,
+        }))
+      : defaultPhysicalSlots;
+
+  const slots = formData.mode === 'tele' ? teleSlots : chamberPhysicalSlots;
 
   const handleModeChange = (mode: 'physical' | 'tele') => {
     updateFormData({

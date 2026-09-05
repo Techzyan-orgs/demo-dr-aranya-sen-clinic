@@ -141,7 +141,7 @@ export function EmergencyModal({ isOpen, onClose, redFlagTriggers }: EmergencyMo
               <strong>Apollo Gleneagles Emergency:</strong> 58 Canal Circular Rd, EM Bypass (+91 33 2320 2122)
             </div>
             <div>
-              <strong>Sen Brain Emergency Annex:</strong> South City Complex (+91 98300 12345)
+              <strong>Manipal Emergency (Dhakuria):</strong> CIT Scheme LXXII, Dhakuria (+91 33 6680 0000)
             </div>
           </div>
         </div>

@@ -13,4 +13,9 @@ export interface Chamber {
   mapQuery?: string;
   chamberRoom?: string;
   floor?: string;
+  isOpenToday?: boolean;
+  nextSessionText?: string;
+  slotsRemaining?: number;
+  estWaitMinutes?: number;
+  slots?: { time: string; token: string }[];
 }

@@ -72,12 +72,12 @@ export function Footer() {
                 <div className="text-slate-500">Chamber 2A • Mon, Wed, Fri (5:00 - 8:30 PM)</div>
               </li>
               <li>
-                <strong className="text-slate-200">Sen Brain & Spine Clinic</strong>
-                <div className="text-slate-500">Prince Anwar Shah Rd • Tue, Thu, Sat (6:00 - 9:30 PM)</div>
+                <strong className="text-slate-200">Sri Aurobindo Seva Kendra (EEDF)</strong>
+                <div className="text-slate-500">Jodhpur Park (Near South City) • Tue, Thu, Sat (6:00 - 9:30 PM)</div>
               </li>
               <li>
-                <strong className="text-slate-200">AMRI Dhakuria Neuro Block</strong>
-                <div className="text-slate-500">Saturday Morning & Sunday Special OPD</div>
+                <strong className="text-slate-200">Manipal Hospital (Dhakuria)</strong>
+                <div className="text-slate-500">Neuro Wing 3B • Saturday Morning & Sunday Special OPD</div>
               </li>
             </ul>
           </div>
